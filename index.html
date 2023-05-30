@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ILA/OLA SalesKit</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="form-container">        
+        <div class="dropdowns">
+            <div class="input-field">
+                <select id="entryLevel">
+                    <option value="" disabled selected>Entry level</option>
+                    <option value="J1A">J1A</option>
+                    <option value="J1B">J1B</option>
+                    <option value="J2A">J2A</option>
+                    <option value="J2B">J2B</option>
+                    <option value="J3A">J3A</option>
+                    <option value="J3B">J3B</option>
+                    <option value="J4A">J4A</option>
+                    <option value="J4B">J4B</option>
+                    <option value="J5A">J5A</option>
+                    <option value="J5B">J5B</option>
+                    <option value="J6A">J6A</option>
+                    <option value="J6B">J6B</option>
+                    <option value="J7A">J7A</option>
+                    <option value="J7B">J7B</option>
+                    <option value="J8A">J8A</option>
+                </select>
+                <label>Select entry level:</label>
+            </div>
+            <div class="input-field">
+                <select id="desiredOutcome">
+                    <option value="" disabled selected>Desired Outcome</option>
+                    <option value="J1A">Pre-A1 Level 1</option>
+                    <option value="J1B">Pre-A1 Level 2</option>
+                    <option value="J2A">Pre-A1 Level 3</option>
+                    <option value="J2B">A1 Level 1</option>
+                    <option value="J3A">A1 Level 2</option>
+                    <option value="J3B">A1 Level 3</option>
+                    <option value="J4A">A2 Level 1</option>
+                    <option value="J4B">A2 Level 2</option>
+                    <option value="J5A">A2 Level 3</option>
+                    <option value="J5B">B1 Level 1</option>
+                    <option value="J6A">B1 Level 2</option>
+                    <option value="J6B">B1 Level 3</option>
+                    <option value="J7A">B2 Level 1</option>
+                    <option value="J7B">B2 Level 2</option>
+                    <option value="J8A">B2 Level 3</option>
+                </select>
+                <label>Select desired outcome:</label>
+            </div>
+            <div class="input-field">
+                <select id="grade">
+                    <option value="" disabled selected>Grade</option>
+                    <option value="Pre-School">Pre-School</option>
+                    <option value="Kindergarten">Kindergarten</option>
+                    <option value="1">Grade 1</option>
+                    <option value="2">Grade 2</option>
+                    <option value="3">Grade 3</option>
+                    <option value="4">Grade 4</option>
+                    <option value="5">Grade 5</option>
+                    <option value="6">Grade 6</option>
+                    <option value="7">Grade 7</option>
+                    <option value="8">Grade 8</option>
+                    <option value="9">Grade 9</option>
+                    <option value="10">Grade 10</option>
+                    <option value="11">Grade 11</option>
+                    <option value="12">Grade 12</option>
+                    <option value="University">University</option>
+                </select>
+                <label>Select current grade:</label>
+            </div>
+            <div class="input-field">          
+                <input id="startDate" type="text" class="datepicker">
+                <label for="startDate">Start Date</label>
+            </div>
+        </div>            
+        <div class="buttonSubmit">        
+            <button class="btn" onclick="getPathway()">Get Pathway</button>
+        </div>        
+    </div>
+
+    <div class="container-pathway">
+        <div class="myCard" id="card-preA1">
+            <div class="cefr-header">
+                <span>Pre-A1</span>
+            </div>
+            <div class="cambridge-header">
+                <span>Starters</span>
+            </div>
+            <div class="level-block">
+                <div class="block" id="block-J1A">Level 1</div>
+                <div class="block" id="block-J1B">Level 2</div>
+                <div class="block" id="block-J2A">Level 3</div>
+            </div>
+        </div>
+        
+        <div class="myCard" id="card-A1">
+            <div class="cefr-header">
+                <span>A1</span>
+            </div>
+            <div class="cambridge-header">
+                <span>Movers</span>
+            </div>
+            <div class="level-block">
+                <div class="block" id="block-J2B">Level 1</div>
+                <div class="block" id="block-J3A">Level 2</div>
+                <div class="block" id="block-J3B">Level 3</div>
+            </div>
+        </div>
+
+
+        
+        <div class="myCard" id="card-A2">
+            <div class="cefr-header">
+                <span>A2</span>
+            </div>
+            <div class="cambridge-header">
+                <span>Flyers</span>
+            </div>
+            <div class="level-block">
+                <div class="block" id="block-J4A">Level 1</div>
+                <div class="block" id="block-J4B">Level 2</div>
+                <div class="block" id="block-J5A">Level 3</div>
+            </div>
+        </div>
+
+
+        
+        <div class="myCard" id="card-B1">
+            <div class="cefr-header">
+                <span>B1</span>
+            </div>
+            <div class="cambridge-header">
+                <span>Key Prep</span>
+            </div>
+            <div class="level-block">
+                <div class="block" id="block-J5B">Level 1</div>
+                <div class="block" id="block-J6A">Level 2</div>
+                <div class="block" id="block-J6B">Level 3</div>
+            </div>
+        </div>
+
+        
+        <div class="myCard" id="card-B2">
+            <div class="cefr-header">
+                <span>B2</span>
+            </div>
+            <div class="cambridge-header">
+                <span>Preliminary Prep</span>
+            </div>
+            <div class="level-block">
+                <div class="block" id="block-J7A">Level 1</div>
+                <div class="block" id="block-J7B">Level 2</div>
+                <div class="block" id="block-J8A">Level 3</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="summary-container" style="visibility: hidden;">
+        <div class="summary">
+            <h4>Summary</h4>
+            <h5>Your child will be able to achieve <span id="summary-desired-level"></span>:</h5>
+            <li>in <span id="summary-duration"></span></li>
+            <li>at Grade <span id="summary-grade">{calculate grade}</span></li>
+            <li>at age <span id="summary-age">{calculate age}</span></li>
+            <li>on <span id="summary-endDate">{calculate month/year}</span></li>
+        </div>
+    </div>
+
+      
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="lib/moment/moment.min.js"></script>
+    <script src="scripts/script.js"></script>
+</body>
+</html>
